@@ -3,24 +3,23 @@ export const MovieCard = ({ movie }) => {
     const { image, title, score, description } = movie;
 
     return (
-        <View key={ movie.id } style={ movieCardStyles.card }>
+        <View style={ styles.card }>
             <Image
                 source={ { uri: image } }
-                style={ movieCardStyles.images }
+                style={ styles.images }
             />
-            <View style={ movieCardStyles.info }>
-                <Text style={ movieCardStyles.title }>{ title }</Text>
-                <Text style={ movieCardStyles.text }>Score: { score }</Text>
-                <Text numberOfLines={ 4 } style={ movieCardStyles.description }>{ description }</Text>
+            <View style={ styles.info }>
+                <Text style={ styles.title }>{ title }</Text>
+                <Text style={ [ styles.text, { color: '#E06C75' } ] }>Score: { score }</Text>
+                <Text numberOfLines={ 4 } style={ styles.text } >{ description }</Text>
             </View>
         </View>
     )
 }
 
-const movieCardStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     card: {
         backgroundColor: '#ECEFF3',
-        flex: 1,
         flexDirection: 'row',
         padding: 8,
         borderRadius: 12,
@@ -32,18 +31,17 @@ const movieCardStyles = StyleSheet.create({
         borderRadius: 8,
     },
     info: {
+        flexShrink: 1,
         maxHeight: 150,
-        flex: 1,
+        gap: 8,
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
+        color: '#2098FB'
     },
     text: {
         fontSize: 16,
+        color: '#282C34',
     },
-    description: {
-        fontSize: 16,
-    }
-
 });
