@@ -25,7 +25,7 @@ export async function getUpcomingMovies() {
 			title,
 		} = item;
 
-		const image = `https://image.tmdb.org/t/p/w500${posterPath}`;
+		const image = `https://image.tmdb.org/t/p/w200${posterPath}`;
 
 		return {
 			description,
@@ -58,7 +58,7 @@ export async function getMovieDetails(id) {
 		title,
 	} = jsonDetails;
 
-	const image = `https://image.tmdb.org/t/p/w500${posterPath}`;
+	const image = `https://image.tmdb.org/t/p/w200${posterPath}`;
 
 	//get reviews from the API
 	const resReviews = await fetch(MOVIE_REVIEWS, options);
