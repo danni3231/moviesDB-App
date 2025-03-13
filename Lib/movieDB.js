@@ -66,6 +66,21 @@ export async function getMovieDetails(id) {
 
 	const { results: reviews } = jsonReviews;
 
+	console.log({
+		details: {
+			budget,
+			genres,
+			url,
+			tagline,
+			description,
+			releaseDate,
+			image,
+			score,
+			title,
+		},
+		reviews,
+	});
+
 	return {
 		details: {
 			budget,

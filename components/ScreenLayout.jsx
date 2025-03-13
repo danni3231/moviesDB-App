@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const ScreenLayout = ({ children }) => {
@@ -7,11 +7,16 @@ export const ScreenLayout = ({ children }) => {
     const insets = useSafeAreaInsets();
 
     return (
-        <View style={ {
-            paddingTop: insets.top + 16,
-            paddingBottom: insets.bottom,
-        } }>
+        <View style={ styles.container }>
             { children }
         </View >
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: 8,
+        backgroundColor: '#1C1D20',
+    },
+});

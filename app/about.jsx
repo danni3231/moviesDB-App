@@ -1,15 +1,18 @@
 import { Link } from 'expo-router';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { HomeIcon } from '../components/Icons';
 
-export const about = () => {
+const about = () => {
     return (
-        <ScrollView>
+        <>
             <Text style={ styles.mainTitle }>About</Text>
             <Text style={ styles.text }>This is the page about...</Text>
-            <Link href='/' style={ styles.text } >
-                ir al home
+            <Link asChild href='/' >
+                <Pressable>
+                    <HomeIcon />
+                </Pressable>
             </Link>
-        </ScrollView >
+        </ >
     )
 }
 

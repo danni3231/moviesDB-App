@@ -1,20 +1,25 @@
+import { Link } from 'expo-router';
 import { useEffect, useRef } from 'react';
-import { Animated, Image, StyleSheet, Text, View } from 'react-native';
+import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 export const MovieCard = ({ movie }) => {
-    const { image, title, score, description } = movie;
+    const { image, title, score, description, id } = movie;
 
     return (
-        <View style={ styles.card }>
-            <Image
-                source={ { uri: image } }
-                style={ styles.images }
-            />
-            <View style={ styles.info }>
-                <Text numberOfLines={ 1 } style={ styles.title }>{ title }</Text>
-                <Text style={ [ styles.text, { color: '#E06C75' } ] }>Score: { score }</Text>
-                <Text numberOfLines={ 4 } style={ styles.text } >{ description }</Text>
-            </View>
-        </View>
+        <Link href={ `${ id }` } asChild>
+            <Pressable >
+                <View style={ styles.card } >
+                    <Image
+                        source={ { uri: image } }
+                        style={ styles.images }
+                    />
+                    <View style={ styles.info }>
+                        <Text numberOfLines={ 1 } style={ styles.title }>{ title }</Text>
+                        <Text style={ [ styles.text, { color: '#E06C75' } ] }>Score: { score }</Text>
+                        <Text numberOfLines={ 4 } style={ styles.text } >{ description }</Text>
+                    </View>
+                </View>
+            </Pressable>
+        </Link>
     )
 }
 
