@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
 import { getUpcomingMovies } from '../lib/movieDB';
 import { AnimatedMovieCard } from './MovieCard';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Link } from 'expo-router';
 
-export default function ScrollList () {
+export default function UpcomingMovies () {
     const [ movies, setMovies ] = useState([]);
     const [ movieDeatails, setMovieDetails ] = useState([]);
-
-    const insets = useSafeAreaInsets();
 
     useEffect(() => {
         getUpcomingMovies().then(movies => setMovies(movies));
@@ -18,7 +17,11 @@ export default function ScrollList () {
     }, []);
 
     return (
-        <View style={ [ styles.container, { paddingTop: insets.top + 16, paddingBottom: insets.bottom + 16 } ] }>
+        <>
+            <Text style={ styles.mainTitle }> Upcoming Movies </Text>
+            <Link href='/about' style={ { color: '#2098FB', textAlign: 'center' } }>
+                ir al about
+            </Link>
             {
                 movies.length === 0 ?
                     <ActivityIndicator style={ styles.loading } size='large' color='#2098FB' />
@@ -30,16 +33,21 @@ export default function ScrollList () {
                         renderItem={ ({ item, index }) => <AnimatedMovieCard movie={ item } index={ index } /> }
                     />
             }
-        </View>
+        </>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 16,
+    mainTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#2098FB',
+        textAlign: 'center',
     },
     flatList: {
         flex: 1,
+        marginVertical: 16,
+        paddingHorizontal: 16,
     },
 
     flatListContent: {

@@ -1,15 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import UpcomingMovies from './components/UpcomingMovies';
+import { StyleSheet } from 'react-native'
+import { Slot } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+import { ScreenLayout } from '../components/ScreenLayout';
 
-export default function App () {
+const Layout = () => {
+
     return (
         <SafeAreaProvider style={ styles.container }>
             <StatusBar style='light' />
-            <UpcomingMovies />
+            <ScreenLayout>
+                <Slot />
+            </ScreenLayout>
         </SafeAreaProvider>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -20,3 +24,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
+
+export default Layout;

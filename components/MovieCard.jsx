@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         gap: 4,
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: 'bold',
         color: '#2098FB'
     },
