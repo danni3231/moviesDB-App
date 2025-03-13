@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import Scroll from './components/Scroll';
+import ScrollList from './components/ScrollList';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App () {
 
+
     return (
-        <SafeAreaProvider>
+        <SafeAreaProvider style={ styles.container }>
             <StatusBar style='light' />
-            <View style={ styles.container } >
-                <Scroll />
-            </View>
+            <ScrollList />
         </SafeAreaProvider>
     );
 }

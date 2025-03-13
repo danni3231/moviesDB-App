@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef } from 'react';
+import { Animated, Image, StyleSheet, Text, View } from 'react-native';
 export const MovieCard = ({ movie }) => {
     const { image, title, score, description } = movie;
 
@@ -9,7 +10,7 @@ export const MovieCard = ({ movie }) => {
                 style={ styles.images }
             />
             <View style={ styles.info }>
-                <Text style={ styles.title }>{ title }</Text>
+                <Text numberOfLines={ 1 } style={ styles.title }>{ title }</Text>
                 <Text style={ [ styles.text, { color: '#E06C75' } ] }>Score: { score }</Text>
                 <Text numberOfLines={ 4 } style={ styles.text } >{ description }</Text>
             </View>
@@ -17,8 +18,29 @@ export const MovieCard = ({ movie }) => {
     )
 }
 
+export const AnimatedMovieCard = ({ movie, index }) => {
+    const opacity = useRef(new Animated.Value(0)).current;
+
+    useEffect(() => {
+        Animated.timing(opacity, {
+            toValue: 1,
+            duration: 500,
+            delay: 100 * index,
+            useNativeDriver: true,
+        }).start();
+    }, [ opacity, index ])
+
+    return (
+        <Animated.View style={ [ opacity ] }>
+            <MovieCard movie={ movie } />
+        </Animated.View>
+    )
+}
+
+
 const styles = StyleSheet.create({
     card: {
+        flex: 1,
         backgroundColor: '#ECEFF3',
         flexDirection: 'row',
         padding: 8,
@@ -33,7 +55,7 @@ const styles = StyleSheet.create({
     info: {
         flexShrink: 1,
         maxHeight: 150,
-        gap: 8,
+        gap: 4,
     },
     title: {
         fontSize: 24,
