@@ -1,5 +1,5 @@
-import UpcomingMovies from '../components/UpcomingMovies';
+import UpcomingMoviesScreen from '../Screens/UpcomingMoviesScreen';
 
-const index = () => <UpcomingMovies />;
+const index = () => <UpcomingMoviesScreen />;
 
 export default index;

@@ -42,7 +42,6 @@ export const AnimatedMovieCard = ({ movie, index }) => {
     )
 }
 
-
 const styles = StyleSheet.create({
     card: {
         flex: 1,

@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable, StyleSheet } from 'react-native';
 import { getUpcomingMovies } from '../lib/movieDB';
-import { AnimatedMovieCard } from './MovieCard';
+import { AnimatedMovieCard, InfoIcon, ScreenLayout } from '../components';
 import { Link, Stack } from 'expo-router';
-import { InfoIcon } from './Icons';
-import { ScreenLayout } from './ScreenLayout';
+import { generalStyles } from '../Styles';
 
-export default function UpcomingMovies () {
+export default function UpcomingMoviesScreen () {
     const [ movies, setMovies ] = useState([]);
 
     useEffect(() => {
@@ -18,8 +17,6 @@ export default function UpcomingMovies () {
             <Stack.Screen
                 options={ {
                     title: 'Upcoming Movies',
-                    headerStyle: { backgroundColor: '#1C1D20' },
-                    headerTintColor: '#2098FB',
                     headerRight: () => (
                         <Link asChild href='/about' >
                             <Pressable>
@@ -31,11 +28,11 @@ export default function UpcomingMovies () {
             />
             {
                 movies.length === 0 ?
-                    <ActivityIndicator style={ styles.loading } size='large' color='#2098FB' />
+                    <ActivityIndicator size='large' color='#2098FB' />
                     :
                     <FlatList
-                        contentContainerStyle={ styles.flatListContent }
-                        style={ styles.flatList }
+                        contentContainerStyle={ generalStyles.flatListContent }
+                        style={ generalStyles.flatList }
                         data={ movies }
                         renderItem={ ({ item, index }) => <AnimatedMovieCard movie={ item } index={ index } /> }
                     />
@@ -43,15 +40,3 @@ export default function UpcomingMovies () {
         </ ScreenLayout >
     );
 }
-
-const styles = StyleSheet.create({
-
-    flatList: {
-        flex: 1,
-        paddingHorizontal: 16,
-    },
-
-    flatListContent: {
-        gap: 16,
-    },
-});

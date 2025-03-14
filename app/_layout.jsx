@@ -1,15 +1,18 @@
-import { StyleSheet, View } from 'react-native'
-import { Slot, Stack } from 'expo-router';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { ScreenLayout } from '../components/ScreenLayout';
 
 const Layout = () => {
-
     return (
         <>
-            <StatusBar style='DARK' />
-            <Stack />
+            <StatusBar style='light' />
+            <Stack
+                screenOptions={
+                    {
+                        headerStyle: { backgroundColor: '#1C1D20' },
+                        headerTintColor: '#2098FB',
+                    }
+                }
+            />
         </>
     )
 }

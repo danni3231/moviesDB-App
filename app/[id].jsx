@@ -1,6 +1,6 @@
-import { MovieDetail } from '../components/MovieDetail'
+import { MovieDetailScreen } from '../Screens';
 
-const detail = () => <MovieDetail />
+const detail = () => <MovieDetailScreen />
 
 export default detail;
 
