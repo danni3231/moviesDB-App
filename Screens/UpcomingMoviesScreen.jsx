@@ -33,6 +33,7 @@ export default function UpcomingMoviesScreen () {
                     <FlatList
                         contentContainerStyle={ generalStyles.flatListContent }
                         style={ generalStyles.flatList }
+                        showsVerticalScrollIndicator={ false }
                         data={ movies }
                         renderItem={ ({ item, index }) => <AnimatedMovieCard movie={ item } index={ index } /> }
                     />
