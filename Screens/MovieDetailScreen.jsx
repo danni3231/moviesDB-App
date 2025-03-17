@@ -14,6 +14,7 @@ export const MovieDetailScreen = () => {
         <ScreenLayout>
             <Stack.Screen
                 options={ {
+                    headerShown: true,
                     title: 'Movie Details',
                     headerTitleAlign: 'center'
                 } }

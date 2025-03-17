@@ -14,18 +14,6 @@ export default function UpcomingMoviesScreen () {
 
     return (
         <ScreenLayout>
-            <Stack.Screen
-                options={ {
-                    title: 'Upcoming Movies',
-                    headerRight: () => (
-                        <Link asChild href='/about' >
-                            <Pressable>
-                                <InfoIcon />
-                            </Pressable>
-                        </Link>
-                    )
-                } }
-            />
             {
                 movies.length === 0 ?
                     <ActivityIndicator size='large' color='#2098FB' />

@@ -6,12 +6,6 @@ import { generalStyles } from '../Styles'
 export const AboutScreen = () => {
     return (
         <ScreenLayout>
-            <Stack.Screen
-                options={ {
-                    title: 'About This App',
-                    headerTitleAlign: 'center'
-                } }
-            />
             <View style={ { gap: 16 } }>
                 <Text style={ [ generalStyles.text, generalStyles.centerText ] } >
                     Bienvenido a MoviesDB, tu compañero esencial para explorar el mundo del cine.

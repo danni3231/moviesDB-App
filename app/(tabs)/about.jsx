@@ -1,4 +1,4 @@
-import { AboutScreen } from '../Screens';
+import { AboutScreen } from '../../Screens';
 
 const about = () => <AboutScreen />
 
